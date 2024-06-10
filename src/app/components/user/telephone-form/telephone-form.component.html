@@ -1,0 +1,22 @@
+<h2>{{ telephoneId ? 'Edit Telephone' : 'Add New Telephone' }}</h2>
+<form [formGroup]="telephoneForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Country Code</mat-label>
+    <input matInput formControlName="codeCountry">
+    <mat-error *ngIf="telephoneForm.get('codeCountry')?.hasError('required')">Country Code is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>State Code</mat-label>
+    <input matInput formControlName="codeState">
+    <mat-error *ngIf="telephoneForm.get('codeState')?.hasError('required')">State Code is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Number</mat-label>
+    <input matInput formControlName="number">
+    <mat-error *ngIf="telephoneForm.get('number')?.hasError('required')">Number is required</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
